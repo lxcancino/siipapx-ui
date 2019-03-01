@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -11,6 +11,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MainPageComponent } from './containers/main-page/main-page.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
+import { throwIfAlreadyLoaded } from './module-import-check';
 
 @NgModule({
   declarations: [ToolbarComponent, MainPageComponent, SideNavComponent],
@@ -24,4 +25,12 @@ import { SideNavComponent } from './components/side-nav/side-nav.component';
   ],
   exports: [MainPageComponent]
 })
-export class CoreModule {}
+export class CoreModule {
+  constructor(
+    @Optional()
+    @SkipSelf()
+    parentModule: CoreModule
+  ) {
+    throwIfAlreadyLoaded(parentModule, 'CoreModule');
+  }
+}
