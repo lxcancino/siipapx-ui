@@ -8,6 +8,13 @@ import { ROUTE } from '../../models';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainPageComponent implements OnInit {
+  app = {
+    title: 'SIIPAPX CxC',
+    shortDescription: 'Cuentas por cobrar',
+    longDescripcion:
+      'Sistema de control y administración de Cuentas por cobrar '
+  };
+
   operations: ROUTE[] = [
     {
       icon: 'assignment',

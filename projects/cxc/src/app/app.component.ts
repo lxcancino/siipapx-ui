@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'swx-root',
   template: `
-    <swx-main-page class="luxor-dark"></swx-main-page>
+    <swx-main-page></swx-main-page>
   `,
   styles: []
 })
