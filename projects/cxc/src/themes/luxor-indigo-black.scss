@@ -1,0 +1,15 @@
+@import '~@angular/material/theming';
+
+@import "./palette";
+
+$primary: mat-palette($mat-black, 700);
+$accent:  mat-palette($mat-deep-orange, 700, A100, A400);
+$warn:    mat-palette($mat-red, 600);
+$theme: mat-light-theme($primary, $accent, $warn);
+$dark-indigo: mat-dark-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
+.luxor-dark {
+  @include angular-material-theme($dark-indigo);
+}

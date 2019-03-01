@@ -2,5 +2,151 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "cxc": {
+      "root": "projects/cxc/",
+      "sourceRoot": "projects/cxc/src",
+      "projectType": "application",
+      "prefix": "swx",
+      "schematics": {
+        "@schematics/angular:component": {
+          "inlineTemplate": true,
+          "inlineStyle": true,
+          "style": "scss"
+        },
+        "@schematics/angular:module": {
+          "routing": false
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/cxc",
+            "index": "projects/cxc/src/index.html",
+            "main": "projects/cxc/src/main.ts",
+            "polyfills": "projects/cxc/src/polyfills.ts",
+            "tsConfig": "projects/cxc/tsconfig.app.json",
+            "assets": [
+              "projects/cxc/src/favicon.ico",
+              "projects/cxc/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/cxc/src/styles.scss"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/cxc/src/environments/environment.ts",
+                  "with": "projects/cxc/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "cxc:build",
+            "port": 7000
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cxc:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cxc:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cxc/src/test.ts",
+            "polyfills": "projects/cxc/src/polyfills.ts",
+            "tsConfig": "projects/cxc/tsconfig.spec.json",
+            "karmaConfig": "projects/cxc/karma.conf.js",
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/cxc/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/cxc/src/favicon.ico",
+              "projects/cxc/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cxc/tsconfig.app.json",
+              "projects/cxc/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    },
+    "cxc-e2e": {
+      "root": "projects/cxc-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/cxc-e2e/protractor.conf.js",
+            "devServerTarget": "cxc:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cxc:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/cxc-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**"]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "cxc",
+  "schematics": {
+    "@schematics/angular:component": {
+      "changeDetection": "OnPush",
+      "style": "scss",
+      "inlineTemplate": false,
+      "inlineStyle": false
+    }
+  }
 }
