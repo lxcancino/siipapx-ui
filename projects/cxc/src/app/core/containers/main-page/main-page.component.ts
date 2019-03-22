@@ -17,37 +17,43 @@ export class MainPageComponent implements OnInit {
 
   operations: ROUTE[] = [
     {
-      icon: 'assignment',
-      route: 'sales/activities',
-      title: 'Activities'
+      icon: 'people',
+      route: '/clientes',
+      title: 'Clientes'
     },
     {
-      icon: 'dashboard',
-      route: 'sales/dashboards',
-      title: 'Dashboards'
+      icon: 'assignment',
+      route: 'catalogos',
+      title: 'Catálogos'
+    },
+    {
+      icon: 'my_library_books',
+      route: '/credito',
+      title: 'Crédito'
+    },
+    {
+      icon: 'local_atm',
+      route: 'cobranza/con',
+      title: 'Cobranza contado'
+    },
+
+    {
+      icon: 'speaker_notes',
+      route: 'cobranza/che',
+      title: 'Cobranza CHE'
+    },
+    {
+      icon: 'device_hub',
+      route: 'cobranza/jur',
+      title: 'Cobranza JUR'
     }
   ];
 
   dashboards: ROUTE[] = [
     {
-      icon: 'contacts',
-      route: 'sales/accounts',
-      title: 'Accounts'
-    },
-    {
-      icon: 'people',
-      route: 'sales/contacts',
-      title: 'Contacts'
-    },
-    {
-      icon: 'settings_phone',
-      route: 'sales/leads',
-      title: 'Leads'
-    },
-    {
-      icon: 'account_box',
-      route: 'sales/opportunities',
-      title: 'Opportunities'
+      icon: 'equalizer',
+      route: 'antiguedad',
+      title: 'Antigüedad de saldos'
     }
   ];
 

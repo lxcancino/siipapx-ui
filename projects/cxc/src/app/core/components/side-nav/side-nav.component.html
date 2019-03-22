@@ -1,5 +1,5 @@
-<mat-nav-list>
-  <h2 matSubheader>Módulos</h2>
+<mat-nav-list dense>
+  <!-- <h2 matSubheader>Módulos</h2> -->
 
   <a mat-list-item routerLink="/" style="height: 0;"></a>
 
@@ -7,7 +7,8 @@
     *ngFor="let item of operations"
     mat-list-item
     [routerLink]="[item.route]"
-    routerLinkActive="list-item-active"
+    routerLinkActive="active"
+    (click)="closeSidebar()"
   >
     <mat-icon matListIcon class="app-nav-list-icon">
       {{ item.icon }}

@@ -1,0 +1,32 @@
+<td-layout-nav-list
+  toolbarTitle="SIIPAPX CXC"
+  navigationRoute="/"
+  opened="true"
+  mode="side"
+  sidenavWidth="275px"
+>
+  <button mat-icon-button td-menu-button tdLayoutToggle>
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <div td-sidenav-content>
+    <mat-nav-list> </mat-nav-list>
+  </div>
+
+  <div td-toolbar-content></div>
+  <mat-nav-list
+    dense
+    td-sidenav-content
+    [tdLayoutNavListClose]="!media.query('gt-sm')"
+  >
+    <ng-template let-item let-last="last" ngFor [ngForOf]="navigation">
+      <a mat-list-item>
+        <mat-icon matListAvatar>{{ item.icon }}</mat-icon>
+        <h3 matLine>{{ item.title }}</h3>
+        <p matLine>{{ item.description }}</p>
+      </a>
+      <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+    </ng-template>
+  </mat-nav-list>
+  <router-outlet></router-outlet>
+</td-layout-nav-list>
