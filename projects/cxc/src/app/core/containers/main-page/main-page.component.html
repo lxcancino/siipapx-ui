@@ -1,18 +1,13 @@
-<td-layout sidenavWidth="310px">
-  <td-navigation-drawer
-    [sidenavTitle]="app.title"
-    name="Firstname Lastname"
-    email="email@gmail.com"
-    color="accent"
-  >
-  </td-navigation-drawer>
-
-  <div td-sidenav-content>
+<td-layout sidenavWidth="255px" #layout>
+  <td-navigation-drawer [sidenavTitle]="app.title" color="accent">
     <swx-side-nav
+      (close)="layout.close()"
       [operations]="operations"
       [dashboards]="dashboards"
     ></swx-side-nav>
-  </div>
-  <swx-toolbar></swx-toolbar>
+  </td-navigation-drawer>
+
+  <div td-sidenav-content></div>
+
   <router-outlet></router-outlet>
 </td-layout>

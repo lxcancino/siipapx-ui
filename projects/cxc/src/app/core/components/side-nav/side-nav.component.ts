@@ -2,7 +2,9 @@ import {
   Component,
   OnInit,
   ChangeDetectionStrategy,
-  Input
+  Input,
+  Output,
+  EventEmitter
 } from '@angular/core';
 import { ROUTE } from '../../models';
 
@@ -17,7 +19,13 @@ export class SideNavComponent implements OnInit {
 
   @Input() dashboards: ROUTE[] = [];
 
+  @Output() close = new EventEmitter<void>();
+
   constructor() {}
 
   ngOnInit() {}
+
+  closeSidebar() {
+    this.close.emit();
+  }
 }

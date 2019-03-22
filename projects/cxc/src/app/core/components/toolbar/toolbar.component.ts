@@ -6,6 +6,8 @@ import {
   EventEmitter
 } from '@angular/core';
 
+import { Sucursal } from '@luxor/models/sucursal';
+
 @Component({
   selector: 'swx-toolbar',
   templateUrl: './toolbar.component.html',
@@ -15,6 +17,8 @@ import {
 export class ToolbarComponent implements OnInit {
   @Output() toggleSidenav = new EventEmitter<void>();
   @Output() logout = new EventEmitter<void>();
+
+  sucursal: Sucursal;
 
   constructor() {}
 

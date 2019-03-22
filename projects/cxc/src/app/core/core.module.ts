@@ -12,6 +12,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MainPageComponent } from './containers/main-page/main-page.component';
 import { SideNavComponent } from './components/side-nav/side-nav.component';
 import { throwIfAlreadyLoaded } from './module-import-check';
+import { LuxorModule } from '@luxor/luxor.module';
 
 @NgModule({
   declarations: [ToolbarComponent, MainPageComponent, SideNavComponent],
@@ -21,7 +22,8 @@ import { throwIfAlreadyLoaded } from './module-import-check';
     CovalentModule,
     HttpClientModule,
     RouterModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    LuxorModule
   ],
   exports: [MainPageComponent]
 })

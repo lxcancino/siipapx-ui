@@ -73,8 +73,8 @@ import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   imports: [
-    BrowserAnimationsModule,
-    HttpClientModule,
+    // BrowserAnimationsModule,
+    // HttpClientModule,
 
     LayoutModule,
 
@@ -122,8 +122,8 @@ import { MatTableModule } from '@angular/material/table';
     MatTableModule
   ],
   exports: [
-    BrowserAnimationsModule,
-    HttpClientModule,
+    // BrowserAnimationsModule,
+    // HttpClientModule,
 
     LayoutModule,
 

@@ -4,7 +4,7 @@
 @import "./palette";
 
 $primary: mat-palette($mat-black, 700);
-$accent:  mat-palette($mat-deep-orange, 700, A100, A400);
+$accent:  mat-palette($mat-indigo, 700, A100, A400);
 $warn:    mat-palette($mat-red, 600);
 $theme: mat-light-theme($primary, $accent, $warn);
 $dark-indigo: mat-dark-theme($primary, $accent, $warn);
@@ -15,4 +15,20 @@ $dark-indigo: mat-dark-theme($primary, $accent, $warn);
 .luxor-dark {
   @include angular-material-theme($dark-indigo);
   @include covalent-theme($dark-indigo);
+}
+
+
+// Active icon color in list nav
+mat-nav-list {
+  [mat-list-item].active {
+    mat-icon[matListAvatar] {
+      background-color: mat-color($accent);
+      color: mat-color($accent, default-contrast)
+    }
+    mat-icon[matListIcon] {
+      color: mat-color($accent);
+    }
+
+    background-color: mat-color($primary, 100)
+  }
 }
