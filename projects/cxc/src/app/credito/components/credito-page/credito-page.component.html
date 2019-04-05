@@ -9,24 +9,27 @@
     <mat-icon>menu</mat-icon>
   </button>
 
-  <div td-sidenav-content>
-    <mat-nav-list> </mat-nav-list>
+  <div td-toolbar-content>
+    <button mat-button tdLayoutNavListToggle>
+      CREDITO
+    </button>
   </div>
 
-  <div td-toolbar-content></div>
-  <mat-nav-list
-    dense
-    td-sidenav-content
-    [tdLayoutNavListClose]="!media.query('gt-sm')"
-  >
-    <ng-template let-item let-last="last" ngFor [ngForOf]="navigation">
-      <a mat-list-item>
+  <div td-sidenav-content [tdLayoutNavListClose]="!media.query('gt-sm')">
+    <mat-nav-list dense>
+      <a
+        mat-list-item
+        *ngFor="let item of navigation; let last = last"
+        [routerLink]="item.path"
+        routerLinkActive="active"
+      >
         <mat-icon matListAvatar>{{ item.icon }}</mat-icon>
         <h3 matLine>{{ item.title }}</h3>
         <p matLine>{{ item.description }}</p>
+        <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
       </a>
-      <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
-    </ng-template>
-  </mat-nav-list>
+    </mat-nav-list>
+  </div>
+
   <router-outlet></router-outlet>
 </td-layout-nav-list>
